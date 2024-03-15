@@ -11,6 +11,8 @@
 		21E2B83B2BA49CDB0090D0DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B83A2BA49CDB0090D0DD /* ContentView.swift */; };
 		21E2B83D2BA49CDC0090D0DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E2B83C2BA49CDC0090D0DD /* Assets.xcassets */; };
 		21E2B8402BA49CDC0090D0DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E2B83F2BA49CDC0090D0DD /* Preview Assets.xcassets */; };
+		21E2B84C2BA49E5F0090D0DD /* SwiftGenTemplate.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 21E2B84B2BA49E5F0090D0DD /* SwiftGenTemplate.stencil */; };
+		21E2B84E2BA49F1A0090D0DD /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B84D2BA49F1A0090D0DD /* XCAssets+Generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		21E2B83A2BA49CDB0090D0DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		21E2B83C2BA49CDC0090D0DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21E2B83F2BA49CDC0090D0DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		21E2B84B2BA49E5F0090D0DD /* SwiftGenTemplate.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftGenTemplate.stencil; sourceTree = "<group>"; };
+		21E2B84D2BA49F1A0090D0DD /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +57,8 @@
 			children = (
 				21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */,
 				21E2B83A2BA49CDB0090D0DD /* ContentView.swift */,
-				21E2B83C2BA49CDC0090D0DD /* Assets.xcassets */,
+				21E2B8482BA49E0E0090D0DD /* Resources */,
+				21E2B8492BA49E1C0090D0DD /* Generated */,
 				21E2B83E2BA49CDC0090D0DD /* Preview Content */,
 			);
 			path = JobSearch;
@@ -67,6 +72,31 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		21E2B8482BA49E0E0090D0DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				21E2B83C2BA49CDC0090D0DD /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		21E2B8492BA49E1C0090D0DD /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				21E2B84D2BA49F1A0090D0DD /* XCAssets+Generated.swift */,
+				21E2B84A2BA49E410090D0DD /* Templates */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		21E2B84A2BA49E410090D0DD /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				21E2B84B2BA49E5F0090D0DD /* SwiftGenTemplate.stencil */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21E2B8432BA49CDC0090D0DD /* Build configuration list for PBXNativeTarget "JobSearch" */;
 			buildPhases = (
+				21E2B8462BA49DA30090D0DD /* SwiftGen */,
 				21E2B8312BA49CDB0090D0DD /* Sources */,
 				21E2B8322BA49CDB0090D0DD /* Frameworks */,
 				21E2B8332BA49CDB0090D0DD /* Resources */,
+				21E2B8472BA49DDF0090D0DD /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -126,17 +158,62 @@
 			buildActionMask = 2147483647;
 			files = (
 				21E2B8402BA49CDC0090D0DD /* Preview Assets.xcassets in Resources */,
+				21E2B84C2BA49E5F0090D0DD /* SwiftGenTemplate.stencil in Resources */,
 				21E2B83D2BA49CDC0090D0DD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		21E2B8462BA49DA30090D0DD /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\n# Remove read-only permissions temporarily\nchmod +w JobSearch/Generated/XCAssets+Generated.swift\n\nif which swiftgen >/dev/null; then\n  swiftgen\nelse\n  echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n\n# Set read-only permissions\nchmod a-w JobSearch/Generated/XCAssets+Generated.swift\n";
+			showEnvVarsInLog = 0;
+		};
+		21E2B8472BA49DDF0090D0DD /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		21E2B8312BA49CDB0090D0DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E2B84E2BA49F1A0090D0DD /* XCAssets+Generated.swift in Sources */,
 				21E2B83B2BA49CDB0090D0DD /* ContentView.swift in Sources */,
 				21E2B8392BA49CDB0090D0DD /* JobSearchApp.swift in Sources */,
 			);
@@ -197,7 +274,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -254,7 +331,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -269,16 +346,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"JobSearch/Preview Content\"";
+				DEVELOPMENT_TEAM = 34UQF5A9ZF;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -286,7 +368,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vlad.JobSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -297,16 +381,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"JobSearch/Preview Content\"";
+				DEVELOPMENT_TEAM = 34UQF5A9ZF;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,7 +403,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vlad.JobSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
