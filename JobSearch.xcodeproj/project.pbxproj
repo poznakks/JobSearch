@@ -7,22 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21A1BF042BA4E9EA0058F2BE /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF032BA4E9EA0058F2BE /* MainCoordinator.swift */; };
+		21A1BF062BA4E9FE0058F2BE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF052BA4E9FE0058F2BE /* Coordinator.swift */; };
+		21A1BF092BA4EAA10058F2BE /* TabBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF082BA4EAA10058F2BE /* TabBarPage.swift */; };
+		21A1BF0C2BA4EB400058F2BE /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF0B2BA4EB400058F2BE /* SearchView.swift */; };
+		21A1BF0E2BA4EB4E0058F2BE /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF0D2BA4EB4E0058F2BE /* SearchCoordinator.swift */; };
+		21A1BF112BA4EC4F0058F2BE /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF102BA4EC4F0058F2BE /* FavoritesView.swift */; };
+		21A1BF132BA4EC5E0058F2BE /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF122BA4EC5E0058F2BE /* FavoritesCoordinator.swift */; };
+		21A1BF152BA4EC910058F2BE /* ResponsesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF142BA4EC910058F2BE /* ResponsesView.swift */; };
+		21A1BF172BA4EC9F0058F2BE /* ResponsesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF162BA4EC9F0058F2BE /* ResponsesCoordinator.swift */; };
+		21A1BF1D2BA4ECFD0058F2BE /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF1C2BA4ECFD0058F2BE /* MessagesView.swift */; };
+		21A1BF1F2BA4ED090058F2BE /* MessagesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF1E2BA4ED090058F2BE /* MessagesCoordinator.swift */; };
+		21A1BF222BA4ED280058F2BE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF212BA4ED280058F2BE /* ProfileView.swift */; };
+		21A1BF242BA4ED330058F2BE /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF232BA4ED330058F2BE /* ProfileCoordinator.swift */; };
 		21E2B8392BA49CDB0090D0DD /* JobSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */; };
-		21E2B83B2BA49CDB0090D0DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B83A2BA49CDB0090D0DD /* ContentView.swift */; };
+		21E2B83B2BA49CDB0090D0DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B83A2BA49CDB0090D0DD /* MainView.swift */; };
 		21E2B83D2BA49CDC0090D0DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E2B83C2BA49CDC0090D0DD /* Assets.xcassets */; };
 		21E2B8402BA49CDC0090D0DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E2B83F2BA49CDC0090D0DD /* Preview Assets.xcassets */; };
-		21E2B84C2BA49E5F0090D0DD /* SwiftGenTemplate.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 21E2B84B2BA49E5F0090D0DD /* SwiftGenTemplate.stencil */; };
-		21E2B84E2BA49F1A0090D0DD /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B84D2BA49F1A0090D0DD /* XCAssets+Generated.swift */; };
+		21E2B8502BA4A32B0090D0DD /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E2B84F2BA4A32B0090D0DD /* Colors.xcassets */; };
+		21E2B8522BA4A3390090D0DD /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E2B8512BA4A3390090D0DD /* Icons.xcassets */; };
+		21E2B8542BA4B1920090D0DD /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B8532BA4B1920090D0DD /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21A1BF032BA4E9EA0058F2BE /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		21A1BF052BA4E9FE0058F2BE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		21A1BF082BA4EAA10058F2BE /* TabBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPage.swift; sourceTree = "<group>"; };
+		21A1BF0B2BA4EB400058F2BE /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		21A1BF0D2BA4EB4E0058F2BE /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		21A1BF102BA4EC4F0058F2BE /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		21A1BF122BA4EC5E0058F2BE /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
+		21A1BF142BA4EC910058F2BE /* ResponsesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsesView.swift; sourceTree = "<group>"; };
+		21A1BF162BA4EC9F0058F2BE /* ResponsesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsesCoordinator.swift; sourceTree = "<group>"; };
+		21A1BF1C2BA4ECFD0058F2BE /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
+		21A1BF1E2BA4ED090058F2BE /* MessagesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCoordinator.swift; sourceTree = "<group>"; };
+		21A1BF212BA4ED280058F2BE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		21A1BF232BA4ED330058F2BE /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		21E2B8352BA49CDB0090D0DD /* JobSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchApp.swift; sourceTree = "<group>"; };
-		21E2B83A2BA49CDB0090D0DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		21E2B83A2BA49CDB0090D0DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		21E2B83C2BA49CDC0090D0DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21E2B83F2BA49CDC0090D0DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		21E2B84B2BA49E5F0090D0DD /* SwiftGenTemplate.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftGenTemplate.stencil; sourceTree = "<group>"; };
-		21E2B84D2BA49F1A0090D0DD /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
+		21E2B84F2BA4A32B0090D0DD /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		21E2B8512BA4A3390090D0DD /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
+		21E2B8532BA4B1920090D0DD /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +64,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21A1BF022BA4E9C80058F2BE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				21E2B83A2BA49CDB0090D0DD /* MainView.swift */,
+				21A1BF032BA4E9EA0058F2BE /* MainCoordinator.swift */,
+				21A1BF052BA4E9FE0058F2BE /* Coordinator.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		21A1BF072BA4EA910058F2BE /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				21A1BF082BA4EAA10058F2BE /* TabBarPage.swift */,
+				21A1BF0A2BA4EB320058F2BE /* Search */,
+				21A1BF0F2BA4EC350058F2BE /* Favorites */,
+				21A1BF182BA4ECA30058F2BE /* Responses */,
+				21A1BF192BA4ECDA0058F2BE /* Messages */,
+				21A1BF202BA4ED190058F2BE /* Profile */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		21A1BF0A2BA4EB320058F2BE /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				21A1BF0B2BA4EB400058F2BE /* SearchView.swift */,
+				21A1BF0D2BA4EB4E0058F2BE /* SearchCoordinator.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		21A1BF0F2BA4EC350058F2BE /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				21A1BF102BA4EC4F0058F2BE /* FavoritesView.swift */,
+				21A1BF122BA4EC5E0058F2BE /* FavoritesCoordinator.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		21A1BF182BA4ECA30058F2BE /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				21A1BF142BA4EC910058F2BE /* ResponsesView.swift */,
+				21A1BF162BA4EC9F0058F2BE /* ResponsesCoordinator.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		21A1BF192BA4ECDA0058F2BE /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				21A1BF1C2BA4ECFD0058F2BE /* MessagesView.swift */,
+				21A1BF1E2BA4ED090058F2BE /* MessagesCoordinator.swift */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		21A1BF202BA4ED190058F2BE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				21A1BF212BA4ED280058F2BE /* ProfileView.swift */,
+				21A1BF232BA4ED330058F2BE /* ProfileCoordinator.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		21E2B82C2BA49CDB0090D0DD = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +152,9 @@
 			isa = PBXGroup;
 			children = (
 				21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */,
-				21E2B83A2BA49CDB0090D0DD /* ContentView.swift */,
+				21A1BF022BA4E9C80058F2BE /* Main */,
+				21A1BF072BA4EA910058F2BE /* Tabs */,
 				21E2B8482BA49E0E0090D0DD /* Resources */,
-				21E2B8492BA49E1C0090D0DD /* Generated */,
 				21E2B83E2BA49CDC0090D0DD /* Preview Content */,
 			);
 			path = JobSearch;
@@ -76,25 +172,11 @@
 			isa = PBXGroup;
 			children = (
 				21E2B83C2BA49CDC0090D0DD /* Assets.xcassets */,
+				21E2B84F2BA4A32B0090D0DD /* Colors.xcassets */,
+				21E2B8512BA4A3390090D0DD /* Icons.xcassets */,
+				21E2B8532BA4B1920090D0DD /* Fonts.swift */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		21E2B8492BA49E1C0090D0DD /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				21E2B84D2BA49F1A0090D0DD /* XCAssets+Generated.swift */,
-				21E2B84A2BA49E410090D0DD /* Templates */,
-			);
-			path = Generated;
-			sourceTree = "<group>";
-		};
-		21E2B84A2BA49E410090D0DD /* Templates */ = {
-			isa = PBXGroup;
-			children = (
-				21E2B84B2BA49E5F0090D0DD /* SwiftGenTemplate.stencil */,
-			);
-			path = Templates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,7 +186,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21E2B8432BA49CDC0090D0DD /* Build configuration list for PBXNativeTarget "JobSearch" */;
 			buildPhases = (
-				21E2B8462BA49DA30090D0DD /* SwiftGen */,
 				21E2B8312BA49CDB0090D0DD /* Sources */,
 				21E2B8322BA49CDB0090D0DD /* Frameworks */,
 				21E2B8332BA49CDB0090D0DD /* Resources */,
@@ -158,34 +239,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				21E2B8402BA49CDC0090D0DD /* Preview Assets.xcassets in Resources */,
-				21E2B84C2BA49E5F0090D0DD /* SwiftGenTemplate.stencil in Resources */,
+				21E2B8502BA4A32B0090D0DD /* Colors.xcassets in Resources */,
 				21E2B83D2BA49CDC0090D0DD /* Assets.xcassets in Resources */,
+				21E2B8522BA4A3390090D0DD /* Icons.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		21E2B8462BA49DA30090D0DD /* SwiftGen */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftGen;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\n# Remove read-only permissions temporarily\nchmod +w JobSearch/Generated/XCAssets+Generated.swift\n\nif which swiftgen >/dev/null; then\n  swiftgen\nelse\n  echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n\n# Set read-only permissions\nchmod a-w JobSearch/Generated/XCAssets+Generated.swift\n";
-			showEnvVarsInLog = 0;
-		};
 		21E2B8472BA49DDF0090D0DD /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -213,9 +275,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21E2B84E2BA49F1A0090D0DD /* XCAssets+Generated.swift in Sources */,
-				21E2B83B2BA49CDB0090D0DD /* ContentView.swift in Sources */,
+				21A1BF1F2BA4ED090058F2BE /* MessagesCoordinator.swift in Sources */,
+				21A1BF092BA4EAA10058F2BE /* TabBarPage.swift in Sources */,
+				21E2B83B2BA49CDB0090D0DD /* MainView.swift in Sources */,
+				21A1BF042BA4E9EA0058F2BE /* MainCoordinator.swift in Sources */,
+				21A1BF0C2BA4EB400058F2BE /* SearchView.swift in Sources */,
+				21A1BF132BA4EC5E0058F2BE /* FavoritesCoordinator.swift in Sources */,
+				21A1BF0E2BA4EB4E0058F2BE /* SearchCoordinator.swift in Sources */,
+				21A1BF222BA4ED280058F2BE /* ProfileView.swift in Sources */,
+				21A1BF242BA4ED330058F2BE /* ProfileCoordinator.swift in Sources */,
+				21A1BF062BA4E9FE0058F2BE /* Coordinator.swift in Sources */,
+				21A1BF172BA4EC9F0058F2BE /* ResponsesCoordinator.swift in Sources */,
+				21E2B8542BA4B1920090D0DD /* Fonts.swift in Sources */,
 				21E2B8392BA49CDB0090D0DD /* JobSearchApp.swift in Sources */,
+				21A1BF112BA4EC4F0058F2BE /* FavoritesView.swift in Sources */,
+				21A1BF1D2BA4ECFD0058F2BE /* MessagesView.swift in Sources */,
+				21A1BF152BA4EC910058F2BE /* ResponsesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct JobSearchApp: App {
+
+    @StateObject private var coordinator = MainCoordinator()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            coordinator.view()
         }
     }
 }
