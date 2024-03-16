@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct ConfirmCodeView: View {
+
+    let email: String
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Отправили код на \(email)")
     }
 }
 
 #Preview {
-    ConfirmCodeView()
+    ConfirmCodeView(email: "sample@email.com")
 }

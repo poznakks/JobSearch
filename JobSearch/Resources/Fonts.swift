@@ -13,6 +13,8 @@ extension Font {
     static let customTitle3 = Font.system(size: 16, weight: .medium)
     static let customTitle4 = Font.system(size: 14, weight: .medium)
 
+    static let customText1 = Font.system(size: 14, weight: .regular)
+
     static let customButtonText1 = Font.system(size: 16, weight: .semibold)
     static let customButtonText2 = Font.system(size: 14, weight: .regular)
 

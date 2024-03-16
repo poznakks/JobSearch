@@ -5,4 +5,14 @@
 //  Created by Vlad Boguzh on 16.03.2024.
 //
 
-import Foundation
+import SwiftUI
+
+final class LoginCoordinator: Coordinator {
+
+    @Published var path = NavigationPath()
+
+    @ViewBuilder
+    func view() -> some View {
+        SearchView(coordinator: SearchCoordinator())
+    }
+}

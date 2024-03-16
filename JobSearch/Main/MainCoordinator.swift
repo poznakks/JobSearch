@@ -9,6 +9,8 @@ import SwiftUI
 
 final class MainCoordinator: Coordinator {
 
+    @Published var path = NavigationPath()
+
     @ViewBuilder
     func view() -> some View {
         MainView(coordinator: self)
@@ -32,5 +34,15 @@ final class MainCoordinator: Coordinator {
 
     func profileCoordinator() -> ProfileCoordinator {
         ProfileCoordinator()
+    }
+
+    @ViewBuilder
+    func loginView(viewModel: LoginViewModel) -> some View {
+        LoginView(viewModel: viewModel)
+    }
+
+    @ViewBuilder
+    func confirmCodeView(email: String) -> some View {
+        ConfirmCodeView(email: email)
     }
 }

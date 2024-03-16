@@ -20,6 +20,14 @@
 		21A1BF1F2BA4ED090058F2BE /* MessagesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF1E2BA4ED090058F2BE /* MessagesCoordinator.swift */; };
 		21A1BF222BA4ED280058F2BE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF212BA4ED280058F2BE /* ProfileView.swift */; };
 		21A1BF242BA4ED330058F2BE /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF232BA4ED330058F2BE /* ProfileCoordinator.swift */; };
+		21A1BF272BA5111E0058F2BE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF262BA5111E0058F2BE /* LoginView.swift */; };
+		21A1BF292BA5114F0058F2BE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF282BA5114F0058F2BE /* LoginViewModel.swift */; };
+		21A1BF2D2BA5944B0058F2BE /* CredentialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF2C2BA5944B0058F2BE /* CredentialsView.swift */; };
+		21A1BF302BA5AFFD0058F2BE /* RectangularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF2F2BA5AFFD0058F2BE /* RectangularButton.swift */; };
+		21A1BF322BA5B7B60058F2BE /* SearchEmployeesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF312BA5B7B60058F2BE /* SearchEmployeesView.swift */; };
+		21A1BF342BA5B97E0058F2BE /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF332BA5B97E0058F2BE /* RoundedButton.swift */; };
+		21A1BF362BA5FF140058F2BE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF352BA5FF140058F2BE /* CustomTextField.swift */; };
+		21A1BF3B2BA61F310058F2BE /* ConfirmCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF3A2BA61F310058F2BE /* ConfirmCodeView.swift */; };
 		21E2B8392BA49CDB0090D0DD /* JobSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */; };
 		21E2B83B2BA49CDB0090D0DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B83A2BA49CDB0090D0DD /* MainView.swift */; };
 		21E2B83D2BA49CDC0090D0DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E2B83C2BA49CDC0090D0DD /* Assets.xcassets */; };
@@ -43,6 +51,14 @@
 		21A1BF1E2BA4ED090058F2BE /* MessagesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCoordinator.swift; sourceTree = "<group>"; };
 		21A1BF212BA4ED280058F2BE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		21A1BF232BA4ED330058F2BE /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		21A1BF262BA5111E0058F2BE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		21A1BF282BA5114F0058F2BE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		21A1BF2C2BA5944B0058F2BE /* CredentialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsView.swift; sourceTree = "<group>"; };
+		21A1BF2F2BA5AFFD0058F2BE /* RectangularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularButton.swift; sourceTree = "<group>"; };
+		21A1BF312BA5B7B60058F2BE /* SearchEmployeesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmployeesView.swift; sourceTree = "<group>"; };
+		21A1BF332BA5B97E0058F2BE /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		21A1BF352BA5FF140058F2BE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		21A1BF3A2BA61F310058F2BE /* ConfirmCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeView.swift; sourceTree = "<group>"; };
 		21E2B8352BA49CDB0090D0DD /* JobSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchApp.swift; sourceTree = "<group>"; };
 		21E2B83A2BA49CDB0090D0DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -132,6 +148,36 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		21A1BF252BA5110B0058F2BE /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				21A1BF262BA5111E0058F2BE /* LoginView.swift */,
+				21A1BF3A2BA61F310058F2BE /* ConfirmCodeView.swift */,
+				21A1BF282BA5114F0058F2BE /* LoginViewModel.swift */,
+				21A1BF392BA61F010058F2BE /* ChildViews */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		21A1BF2E2BA5AFEB0058F2BE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				21A1BF2F2BA5AFFD0058F2BE /* RectangularButton.swift */,
+				21A1BF332BA5B97E0058F2BE /* RoundedButton.swift */,
+				21A1BF352BA5FF140058F2BE /* CustomTextField.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		21A1BF392BA61F010058F2BE /* ChildViews */ = {
+			isa = PBXGroup;
+			children = (
+				21A1BF2C2BA5944B0058F2BE /* CredentialsView.swift */,
+				21A1BF312BA5B7B60058F2BE /* SearchEmployeesView.swift */,
+			);
+			path = ChildViews;
+			sourceTree = "<group>";
+		};
 		21E2B82C2BA49CDB0090D0DD = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */,
+				21A1BF2E2BA5AFEB0058F2BE /* Common */,
+				21A1BF252BA5110B0058F2BE /* Login */,
 				21A1BF022BA4E9C80058F2BE /* Main */,
 				21A1BF072BA4EA910058F2BE /* Tabs */,
 				21E2B8482BA49E0E0090D0DD /* Resources */,
@@ -277,17 +325,25 @@
 			files = (
 				21A1BF1F2BA4ED090058F2BE /* MessagesCoordinator.swift in Sources */,
 				21A1BF092BA4EAA10058F2BE /* TabBarPage.swift in Sources */,
+				21A1BF322BA5B7B60058F2BE /* SearchEmployeesView.swift in Sources */,
+				21A1BF302BA5AFFD0058F2BE /* RectangularButton.swift in Sources */,
+				21A1BF362BA5FF140058F2BE /* CustomTextField.swift in Sources */,
 				21E2B83B2BA49CDB0090D0DD /* MainView.swift in Sources */,
 				21A1BF042BA4E9EA0058F2BE /* MainCoordinator.swift in Sources */,
+				21A1BF2D2BA5944B0058F2BE /* CredentialsView.swift in Sources */,
 				21A1BF0C2BA4EB400058F2BE /* SearchView.swift in Sources */,
 				21A1BF132BA4EC5E0058F2BE /* FavoritesCoordinator.swift in Sources */,
 				21A1BF0E2BA4EB4E0058F2BE /* SearchCoordinator.swift in Sources */,
 				21A1BF222BA4ED280058F2BE /* ProfileView.swift in Sources */,
+				21A1BF292BA5114F0058F2BE /* LoginViewModel.swift in Sources */,
 				21A1BF242BA4ED330058F2BE /* ProfileCoordinator.swift in Sources */,
 				21A1BF062BA4E9FE0058F2BE /* Coordinator.swift in Sources */,
+				21A1BF272BA5111E0058F2BE /* LoginView.swift in Sources */,
 				21A1BF172BA4EC9F0058F2BE /* ResponsesCoordinator.swift in Sources */,
 				21E2B8542BA4B1920090D0DD /* Fonts.swift in Sources */,
+				21A1BF342BA5B97E0058F2BE /* RoundedButton.swift in Sources */,
 				21E2B8392BA49CDB0090D0DD /* JobSearchApp.swift in Sources */,
+				21A1BF3B2BA61F310058F2BE /* ConfirmCodeView.swift in Sources */,
 				21A1BF112BA4EC4F0058F2BE /* FavoritesView.swift in Sources */,
 				21A1BF1D2BA4ECFD0058F2BE /* MessagesView.swift in Sources */,
 				21A1BF152BA4EC910058F2BE /* ResponsesView.swift in Sources */,

@@ -52,6 +52,7 @@ struct CredentialsView: View {
     private var continueButton: some View {
         RectangularButton(
             title: Constants.Strings.continueButtonText,
+            font: .customButtonText2,
             bgColor: viewModel.emailText.isEmpty ?
                 .customDarkBlue : .customBlue,
             height: Constants.Constraints.continueButtonHeight,
