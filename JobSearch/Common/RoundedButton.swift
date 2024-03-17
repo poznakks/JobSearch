@@ -19,7 +19,8 @@ struct RoundedButton: View {
             Text(title)
                 .foregroundColor(.customWhite)
                 .font(.customButtonText2)
-                .frame(maxWidth: .infinity, maxHeight: 32)
+                .frame(maxWidth: .infinity)
+                .frame(height: 32)
                 .background(.customGreen)
                 .clipShape(.rect(cornerRadius: 50))
         }

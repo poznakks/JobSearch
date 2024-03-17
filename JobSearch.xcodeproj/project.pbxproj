@@ -29,6 +29,8 @@
 		21A1BF362BA5FF140058F2BE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF352BA5FF140058F2BE /* CustomTextField.swift */; };
 		21A1BF3B2BA61F310058F2BE /* ConfirmCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF3A2BA61F310058F2BE /* ConfirmCodeView.swift */; };
 		21A1BF3F2BA6690C0058F2BE /* DigitTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF3E2BA6690C0058F2BE /* DigitTextField.swift */; };
+		21A1BF412BA70CD40058F2BE /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF402BA70CD40058F2BE /* SuggestionView.swift */; };
+		21A1BF432BA7192F0058F2BE /* VacancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF422BA7192F0058F2BE /* VacancyView.swift */; };
 		21E2B8392BA49CDB0090D0DD /* JobSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */; };
 		21E2B83B2BA49CDB0090D0DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B83A2BA49CDB0090D0DD /* MainView.swift */; };
 		21E2B83D2BA49CDC0090D0DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E2B83C2BA49CDC0090D0DD /* Assets.xcassets */; };
@@ -61,6 +63,8 @@
 		21A1BF352BA5FF140058F2BE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		21A1BF3A2BA61F310058F2BE /* ConfirmCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeView.swift; sourceTree = "<group>"; };
 		21A1BF3E2BA6690C0058F2BE /* DigitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitTextField.swift; sourceTree = "<group>"; };
+		21A1BF402BA70CD40058F2BE /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionView.swift; sourceTree = "<group>"; };
+		21A1BF422BA7192F0058F2BE /* VacancyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyView.swift; sourceTree = "<group>"; };
 		21E2B8352BA49CDB0090D0DD /* JobSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchApp.swift; sourceTree = "<group>"; };
 		21E2B83A2BA49CDB0090D0DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 			children = (
 				21A1BF0B2BA4EB400058F2BE /* SearchView.swift */,
 				21A1BF0D2BA4EB4E0058F2BE /* SearchCoordinator.swift */,
+				21A1BF402BA70CD40058F2BE /* SuggestionView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				21A1BF2F2BA5AFFD0058F2BE /* RectangularButton.swift */,
 				21A1BF332BA5B97E0058F2BE /* RoundedButton.swift */,
 				21A1BF352BA5FF140058F2BE /* CustomTextField.swift */,
+				21A1BF422BA7192F0058F2BE /* VacancyView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -326,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21A1BF412BA70CD40058F2BE /* SuggestionView.swift in Sources */,
 				21A1BF1F2BA4ED090058F2BE /* MessagesCoordinator.swift in Sources */,
 				21A1BF092BA4EAA10058F2BE /* TabBarPage.swift in Sources */,
 				21A1BF322BA5B7B60058F2BE /* SearchEmployeesView.swift in Sources */,
@@ -351,6 +358,7 @@
 				21A1BF112BA4EC4F0058F2BE /* FavoritesView.swift in Sources */,
 				21A1BF1D2BA4ECFD0058F2BE /* MessagesView.swift in Sources */,
 				21A1BF152BA4EC910058F2BE /* ResponsesView.swift in Sources */,
+				21A1BF432BA7192F0058F2BE /* VacancyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

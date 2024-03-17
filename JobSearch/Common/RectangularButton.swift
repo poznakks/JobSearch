@@ -38,7 +38,8 @@ struct RectangularButton: View {
             Text(title)
                 .foregroundColor(.customWhite)
                 .font(font)
-                .frame(maxWidth: .infinity, maxHeight: height)
+                .frame(maxWidth: .infinity)
+                .frame(height: height)
                 .background(bgColor)
                 .clipShape(.rect(cornerRadius: 8))
         }

@@ -77,14 +77,14 @@ struct MainView: View {
     }
 
     private func configureTabBarAppearance() {
-        let appearance = UITabBarAppearance()
-        appearance.backgroundEffect = UIBlurEffect(
-            style: .systemUltraThinMaterialDark
-        )
-        appearance.backgroundColor = .customShadows
+        let standardAppearance = UITabBarAppearance()
+        standardAppearance.backgroundColor = .customShadows
 
-        UITabBar.appearance().standardAppearance = appearance
-        UITabBar.appearance().scrollEdgeAppearance = appearance
+        let scrollEdgeAppearance = UITabBarAppearance()
+        scrollEdgeAppearance.backgroundColor = .customBlack
+
+        UITabBar.appearance().standardAppearance = standardAppearance
+        UITabBar.appearance().scrollEdgeAppearance = scrollEdgeAppearance
     }
 }
 

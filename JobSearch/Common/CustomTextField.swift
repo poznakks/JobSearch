@@ -36,7 +36,7 @@ struct CustomTextField: View {
     }
 
     private var leftView: some View {
-        Image(.response)
+        leftImage
             .foregroundStyle(.customGrey4)
             .padding(
                 .leading,
