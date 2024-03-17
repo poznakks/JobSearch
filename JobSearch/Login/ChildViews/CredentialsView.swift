@@ -56,7 +56,7 @@ struct CredentialsView: View {
             bgColor: viewModel.emailText.isEmpty ?
                 .customDarkBlue : .customBlue,
             height: Constants.Constraints.continueButtonHeight,
-            isActive: viewModel.emailText.isEmpty
+            isDisabled: viewModel.emailText.isEmpty
         ) {
             viewModel.validateEmail()
         }

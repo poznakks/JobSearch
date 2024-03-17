@@ -20,14 +20,14 @@ struct RectangularButton: View {
          font: Font,
          bgColor: Color,
          height: CGFloat,
-         isActive: Bool = false,
+         isDisabled: Bool = false,
          action: @escaping () -> Void
     ) {
         self.title = title
         self.font = font
         self.bgColor = bgColor
         self.height = height
-        self.isDisabled = isActive
+        self.isDisabled = isDisabled
         self.action = action
     }
 

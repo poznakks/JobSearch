@@ -28,6 +28,7 @@
 		21A1BF342BA5B97E0058F2BE /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF332BA5B97E0058F2BE /* RoundedButton.swift */; };
 		21A1BF362BA5FF140058F2BE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF352BA5FF140058F2BE /* CustomTextField.swift */; };
 		21A1BF3B2BA61F310058F2BE /* ConfirmCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF3A2BA61F310058F2BE /* ConfirmCodeView.swift */; };
+		21A1BF3F2BA6690C0058F2BE /* DigitTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF3E2BA6690C0058F2BE /* DigitTextField.swift */; };
 		21E2B8392BA49CDB0090D0DD /* JobSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */; };
 		21E2B83B2BA49CDB0090D0DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B83A2BA49CDB0090D0DD /* MainView.swift */; };
 		21E2B83D2BA49CDC0090D0DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E2B83C2BA49CDC0090D0DD /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		21A1BF332BA5B97E0058F2BE /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		21A1BF352BA5FF140058F2BE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		21A1BF3A2BA61F310058F2BE /* ConfirmCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeView.swift; sourceTree = "<group>"; };
+		21A1BF3E2BA6690C0058F2BE /* DigitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitTextField.swift; sourceTree = "<group>"; };
 		21E2B8352BA49CDB0090D0DD /* JobSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchApp.swift; sourceTree = "<group>"; };
 		21E2B83A2BA49CDB0090D0DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			children = (
 				21A1BF2C2BA5944B0058F2BE /* CredentialsView.swift */,
 				21A1BF312BA5B7B60058F2BE /* SearchEmployeesView.swift */,
+				21A1BF3E2BA6690C0058F2BE /* DigitTextField.swift */,
 			);
 			path = ChildViews;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				21A1BF132BA4EC5E0058F2BE /* FavoritesCoordinator.swift in Sources */,
 				21A1BF0E2BA4EB4E0058F2BE /* SearchCoordinator.swift in Sources */,
 				21A1BF222BA4ED280058F2BE /* ProfileView.swift in Sources */,
+				21A1BF3F2BA6690C0058F2BE /* DigitTextField.swift in Sources */,
 				21A1BF292BA5114F0058F2BE /* LoginViewModel.swift in Sources */,
 				21A1BF242BA4ED330058F2BE /* ProfileCoordinator.swift in Sources */,
 				21A1BF062BA4E9FE0058F2BE /* Coordinator.swift in Sources */,

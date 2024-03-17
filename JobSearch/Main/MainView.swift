@@ -43,7 +43,9 @@ struct MainView: View {
         .onAppear {
             configureTabBarAppearance()
         }
-        .fullScreenCover(isPresented: $loginViewModel.isAuth) {
+        .fullScreenCover(isPresented: $loginViewModel.showConfirm) {
+            loginViewModel.login()
+        } content: {
             coordinator.confirmCodeView(email: loginViewModel.emailText)
         }
     }
@@ -53,7 +55,7 @@ struct MainView: View {
         page: TabBarPage,
         badgeCounter: Int = 0
     ) -> some View {
-        loginOrTabView()
+        loginOrTabView(childCoordinator: coordinator)
             .tabItem {
                 page.image
                 Text(page.title)
@@ -64,9 +66,11 @@ struct MainView: View {
     }
 
     @ViewBuilder
-    private func loginOrTabView() -> some View {
-        if loginViewModel.isAuth {
-            coordinator.view()
+    private func loginOrTabView(
+        childCoordinator: some Coordinator
+    ) -> some View {
+        if loginViewModel.isAuthenticated {
+            childCoordinator.view()
         } else {
             coordinator.loginView(viewModel: loginViewModel)
         }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 final class LoginViewModel: ObservableObject {
-    @Published var isAuth = false
+    @Published var isAuthenticated = false
+    @Published var showConfirm = false
     @Published var emailError = false
     @Published var emailText: String = "" {
         didSet {
@@ -21,6 +22,10 @@ final class LoginViewModel: ObservableObject {
         let predicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         let result = predicate.evaluate(with: emailText)
         emailError = !result
-        isAuth = result
+        showConfirm = result
+    }
+
+    func login() {
+        isAuthenticated = true
     }
 }

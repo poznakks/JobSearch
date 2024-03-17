@@ -50,14 +50,14 @@ struct CustomTextField: View {
             if text.isEmpty {
                 Text(placeholder)
                     .font(.customText1)
-                    .foregroundColor(.customGrey4)
+                    .foregroundStyle(.customGrey4)
             }
 
             TextField("", text: $text)
                 .keyboardType(.emailAddress)
                 .autocorrectionDisabled()
                 .textInputAutocapitalization(.never)
-                .foregroundColor(.customWhite)
+                .foregroundStyle(.customWhite)
         }
         .padding(
             .leading,
