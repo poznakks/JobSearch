@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchView: View {
 
     @ObservedObject var coordinator: SearchCoordinator
+    @StateObject private var viewModel = SearchViewModel()
 
     var body: some View {
         NavigationStack(path: $coordinator.path) {
@@ -29,7 +30,7 @@ struct SearchView: View {
                             .padding(.horizontal, 12)
                             .padding(.bottom, 8)
 
-                        vacanciesScrollView
+                        vacancies
                             .padding(.horizontal, 12)
                             .padding(.bottom, 8)
 
@@ -37,6 +38,15 @@ struct SearchView: View {
                     }
                 }
                 .clipped()
+                .onAppear {
+                    viewModel.fetchVacancies()
+                }
+                .navigationDestination(for: SearchCoordinator.Destination.self) {
+                    switch $0 {
+                    case .detail(let vacancy):
+                        coordinator.detailView(vacancy: vacancy)
+                    }
+                }
             }
         }
     }
@@ -95,55 +105,25 @@ struct SearchView: View {
             Text("Вакансии для вас")
                 .foregroundStyle(.customWhite)
                 .font(.customTitle1)
-
             Spacer()
         }
     }
 
-    private var vacanciesScrollView: some View {
-        ScrollView(.vertical) {
-            VStack(spacing: 12) {
-                VacancyView(
-                    title: "Веб-дизайнер",
-                    town: "Казань",
-                    company: "Алабуга. Маркетинг и PR",
-                    experience: "Без опыта",
-                    publishedDate: "2024-02-20",
-                    isFavorite: false,
-                    salary: "от 60 000 ₽",
-                    lookingNumber: 7
-                )
-
-                VacancyView(
-                    title: "Веб-дизайнер",
-                    town: "Казань",
-                    company: "Алабуга. Маркетинг и PR",
-                    experience: "Без опыта",
-                    publishedDate: "2024-02-20",
-                    isFavorite: false,
-                    salary: "от 60 000 ₽",
-                    lookingNumber: 7
-                )
-
-                VacancyView(
-                    title: "Веб-дизайнер",
-                    town: "Казань",
-                    company: "Алабуга. Маркетинг и PR",
-                    experience: "Без опыта",
-                    publishedDate: "2024-02-20",
-                    isFavorite: false,
-                    salary: "от 60 000 ₽",
-                    lookingNumber: 7
-                )
-
-                moreVacanciesButton
+    private var vacancies: some View {
+        VStack(spacing: 12) {
+            ForEach(viewModel.vacancies.prefix(3)) { vacancy in
+                VacancyView(vacancy: vacancy)
+                    .onTapGesture {
+                        coordinator.navigate(to: .detail(vacancy))
+                    }
             }
+            moreVacanciesButton
         }
     }
 
     private var moreVacanciesButton: some View {
         RectangularButton(
-            title: "Eще 3 вакансии",
+            title: "Eще \(viewModel.vacancies.count - 3) вакансии",
             font: .customButtonText1,
             bgColor: .customBlue,
             height: 48

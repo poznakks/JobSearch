@@ -31,6 +31,12 @@
 		21A1BF3F2BA6690C0058F2BE /* DigitTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF3E2BA6690C0058F2BE /* DigitTextField.swift */; };
 		21A1BF412BA70CD40058F2BE /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF402BA70CD40058F2BE /* SuggestionView.swift */; };
 		21A1BF432BA7192F0058F2BE /* VacancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF422BA7192F0058F2BE /* VacancyView.swift */; };
+		21A1BF452BA74C3D0058F2BE /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF442BA74C3D0058F2BE /* SearchViewModel.swift */; };
+		21A1BF472BA74C840058F2BE /* Vacancy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF462BA74C840058F2BE /* Vacancy.swift */; };
+		21A1BF492BA75A1E0058F2BE /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF482BA75A1E0058F2BE /* NetworkClient.swift */; };
+		21A1BF4E2BA8A5180058F2BE /* VacancyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF4D2BA8A5180058F2BE /* VacancyDetailView.swift */; };
+		21A1BF512BA8B3C20058F2BE /* CurrentPeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF502BA8B3C20058F2BE /* CurrentPeopleView.swift */; };
+		21A1BF532BA8BC910058F2BE /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1BF522BA8BC910058F2BE /* AddressView.swift */; };
 		21E2B8392BA49CDB0090D0DD /* JobSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */; };
 		21E2B83B2BA49CDB0090D0DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B83A2BA49CDB0090D0DD /* MainView.swift */; };
 		21E2B83D2BA49CDC0090D0DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E2B83C2BA49CDC0090D0DD /* Assets.xcassets */; };
@@ -65,6 +71,12 @@
 		21A1BF3E2BA6690C0058F2BE /* DigitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitTextField.swift; sourceTree = "<group>"; };
 		21A1BF402BA70CD40058F2BE /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionView.swift; sourceTree = "<group>"; };
 		21A1BF422BA7192F0058F2BE /* VacancyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyView.swift; sourceTree = "<group>"; };
+		21A1BF442BA74C3D0058F2BE /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		21A1BF462BA74C840058F2BE /* Vacancy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vacancy.swift; sourceTree = "<group>"; };
+		21A1BF482BA75A1E0058F2BE /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		21A1BF4D2BA8A5180058F2BE /* VacancyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyDetailView.swift; sourceTree = "<group>"; };
+		21A1BF502BA8B3C20058F2BE /* CurrentPeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPeopleView.swift; sourceTree = "<group>"; };
+		21A1BF522BA8BC910058F2BE /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		21E2B8352BA49CDB0090D0DD /* JobSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchApp.swift; sourceTree = "<group>"; };
 		21E2B83A2BA49CDB0090D0DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -100,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				21A1BF082BA4EAA10058F2BE /* TabBarPage.swift */,
+				21A1BF4F2BA8B2820058F2BE /* VacancyDetail */,
 				21A1BF0A2BA4EB320058F2BE /* Search */,
 				21A1BF0F2BA4EC350058F2BE /* Favorites */,
 				21A1BF182BA4ECA30058F2BE /* Responses */,
@@ -112,9 +125,10 @@
 		21A1BF0A2BA4EB320058F2BE /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				21A1BF4C2BA8A4EF0058F2BE /* ChildViews */,
 				21A1BF0B2BA4EB400058F2BE /* SearchView.swift */,
 				21A1BF0D2BA4EB4E0058F2BE /* SearchCoordinator.swift */,
-				21A1BF402BA70CD40058F2BE /* SuggestionView.swift */,
+				21A1BF442BA74C3D0058F2BE /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -187,6 +201,24 @@
 			path = ChildViews;
 			sourceTree = "<group>";
 		};
+		21A1BF4C2BA8A4EF0058F2BE /* ChildViews */ = {
+			isa = PBXGroup;
+			children = (
+				21A1BF402BA70CD40058F2BE /* SuggestionView.swift */,
+			);
+			path = ChildViews;
+			sourceTree = "<group>";
+		};
+		21A1BF4F2BA8B2820058F2BE /* VacancyDetail */ = {
+			isa = PBXGroup;
+			children = (
+				21A1BF4D2BA8A5180058F2BE /* VacancyDetailView.swift */,
+				21A1BF502BA8B3C20058F2BE /* CurrentPeopleView.swift */,
+				21A1BF522BA8BC910058F2BE /* AddressView.swift */,
+			);
+			path = VacancyDetail;
+			sourceTree = "<group>";
+		};
 		21E2B82C2BA49CDB0090D0DD = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +245,8 @@
 				21A1BF072BA4EA910058F2BE /* Tabs */,
 				21E2B8482BA49E0E0090D0DD /* Resources */,
 				21E2B83E2BA49CDC0090D0DD /* Preview Content */,
+				21A1BF462BA74C840058F2BE /* Vacancy.swift */,
+				21A1BF482BA75A1E0058F2BE /* NetworkClient.swift */,
 			);
 			path = JobSearch;
 			sourceTree = "<group>";
@@ -343,17 +377,23 @@
 				21A1BF2D2BA5944B0058F2BE /* CredentialsView.swift in Sources */,
 				21A1BF0C2BA4EB400058F2BE /* SearchView.swift in Sources */,
 				21A1BF132BA4EC5E0058F2BE /* FavoritesCoordinator.swift in Sources */,
+				21A1BF492BA75A1E0058F2BE /* NetworkClient.swift in Sources */,
 				21A1BF0E2BA4EB4E0058F2BE /* SearchCoordinator.swift in Sources */,
 				21A1BF222BA4ED280058F2BE /* ProfileView.swift in Sources */,
 				21A1BF3F2BA6690C0058F2BE /* DigitTextField.swift in Sources */,
 				21A1BF292BA5114F0058F2BE /* LoginViewModel.swift in Sources */,
 				21A1BF242BA4ED330058F2BE /* ProfileCoordinator.swift in Sources */,
+				21A1BF532BA8BC910058F2BE /* AddressView.swift in Sources */,
 				21A1BF062BA4E9FE0058F2BE /* Coordinator.swift in Sources */,
 				21A1BF272BA5111E0058F2BE /* LoginView.swift in Sources */,
 				21A1BF172BA4EC9F0058F2BE /* ResponsesCoordinator.swift in Sources */,
 				21E2B8542BA4B1920090D0DD /* Fonts.swift in Sources */,
+				21A1BF512BA8B3C20058F2BE /* CurrentPeopleView.swift in Sources */,
+				21A1BF4E2BA8A5180058F2BE /* VacancyDetailView.swift in Sources */,
 				21A1BF342BA5B97E0058F2BE /* RoundedButton.swift in Sources */,
 				21E2B8392BA49CDB0090D0DD /* JobSearchApp.swift in Sources */,
+				21A1BF452BA74C3D0058F2BE /* SearchViewModel.swift in Sources */,
+				21A1BF472BA74C840058F2BE /* Vacancy.swift in Sources */,
 				21A1BF3B2BA61F310058F2BE /* ConfirmCodeView.swift in Sources */,
 				21A1BF112BA4EC4F0058F2BE /* FavoritesView.swift in Sources */,
 				21A1BF1D2BA4ECFD0058F2BE /* MessagesView.swift in Sources */,

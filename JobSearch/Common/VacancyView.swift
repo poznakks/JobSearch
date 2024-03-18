@@ -9,24 +9,24 @@ import SwiftUI
 
 struct VacancyView: View {
 
-    let title: String
-    let town: String
-    let company: String
-    let experience: String
-    let publishedDate: String
-    let isFavorite: Bool
-    let salary: String?
-    let lookingNumber: Int?
+    let vacancy: Vacancy
+    @State private var isFavorite: Bool
+
+    init(vacancy: Vacancy) {
+        self.vacancy = vacancy
+        self._isFavorite = State(initialValue: vacancy.isFavorite)
+    }
 
     var body: some View {
         VStack(spacing: 10) {
-            if let lookingNumber {
+            if vacancy.lookingNumber != nil {
                 lookingNumberTitle
             }
 
             jobTitle
+                .padding(.trailing, 40)
 
-            if let salary {
+            if vacancy.salary.short != nil {
                 salaryTitle
             }
 
@@ -46,20 +46,13 @@ struct VacancyView: View {
         .background(Color.customGrey1)
         .clipShape(.rect(cornerRadius: 8))
         .overlay {
-            VStack {
-                HStack {
-                    Spacer()
-                    Image(isFavorite ? .favoriteSelected : .favorite)
-                        .padding(16)
-                }
-                Spacer()
-            }
+            markAsFavoriteButton
         }
     }
 
     private var lookingNumberTitle: some View {
         HStack {
-            Text("Cейчас просматривает \(lookingNumber ?? 0) человек")
+            Text("Cейчас просматривает \(vacancy.lookingNumber ?? 0) человек")
                 .foregroundStyle(.customGreen)
                 .font(.customText1)
             Spacer()
@@ -68,7 +61,7 @@ struct VacancyView: View {
 
     private var jobTitle: some View {
         HStack {
-            Text(title)
+            Text(vacancy.title)
                 .foregroundStyle(.white)
                 .font(.customTitle2)
             Spacer()
@@ -77,7 +70,7 @@ struct VacancyView: View {
 
     private var salaryTitle: some View {
         HStack {
-            Text(salary ?? "")
+            Text(vacancy.salary.short ?? "")
                 .foregroundStyle(.customWhite)
                 .font(.customTitle1)
             Spacer()
@@ -86,7 +79,7 @@ struct VacancyView: View {
 
     private var townTitle: some View {
         HStack {
-            Text(town)
+            Text(vacancy.address.town)
                 .foregroundStyle(.white)
                 .font(.customText1)
             Spacer()
@@ -95,7 +88,7 @@ struct VacancyView: View {
 
     private var companyTitle: some View {
         HStack {
-            Text(company)
+            Text(vacancy.company)
                 .foregroundStyle(.white)
                 .font(.customText1)
             Image(.verifiedCompany)
@@ -106,7 +99,7 @@ struct VacancyView: View {
     private var experienceTitle: some View {
         HStack {
             Image(.briefcase)
-            Text(experience)
+            Text(vacancy.experience.previewText)
                 .foregroundStyle(.white)
                 .font(.customText1)
             Spacer()
@@ -122,11 +115,26 @@ struct VacancyView: View {
         }
     }
 
+    private var markAsFavoriteButton: some View {
+        VStack {
+            HStack {
+                Spacer()
+                Button {
+                    isFavorite.toggle()
+                } label: {
+                    Image(isFavorite ? .favoriteSelected : .favorite)
+                        .padding(16)
+                }
+            }
+            Spacer()
+        }
+    }
+
     private func formatDate() -> String? {
         let inputDateFormatter = DateFormatter()
         inputDateFormatter.dateFormat = "yyyy-MM-dd"
 
-        guard let date = inputDateFormatter.date(from: publishedDate) else {
+        guard let date = inputDateFormatter.date(from: vacancy.publishedDate) else {
             return nil
         }
 
@@ -140,15 +148,28 @@ struct VacancyView: View {
     }
 }
 
+// swiftlint:disable line_length
 #Preview {
-    VacancyView(
-        title: "Веб-дизайнер",
-        town: "Казань",
-        company: "Алабуга. Маркетинг и PR",
-        experience: "Без опыта",
-        publishedDate: "2024-02-20",
+    let vacancy = Vacancy(
+        id: "54a876a5-2205-48ba-9498-cfecff4baa6e",
+        lookingNumber: 17,
+        title: "UI/UX-дизайнер / Web-дизайнер / Дизайнер интерфейсов",
+        address: Address(town: "Казань", street: "улица Чистопольская", house: "20/10"),
+        company: "Шафигуллин Шакир",
+        experience: Experience(previewText: "Опыт от 1 до 3 лет", text: "1–3 года"),
+        publishedDate: "2024-03-06",
         isFavorite: false,
-        salary: "от 60 000 ₽",
-        lookingNumber: 7
+        salary: Salary(full: "от 20 000 до 50 000 ₽ на руки", short: "20 000 до 50 000 ₽"),
+        schedules: ["частичная занятость",
+                    "полный день"],
+        appliedNumber: 147,
+        description: "Мы разрабатываем мобильные приложения, web-приложения и сайты под ключ.\n\nНам в команду нужен UX/UI Designer!",
+        responsibilities: "- Разработка дизайна Web+App (обязательно Figma)\n\n- Работа над созданием и улучшением систем;\n\n- Взаимодействие с командами frontend-разработки и backend-разработки",
+        questions: ["Где располагается место работы?",
+                    "Какой график работы?",
+                    "Как с вами связаться?"]
     )
+    return VacancyView(vacancy: vacancy)
+                .preferredColorScheme(.dark)
 }
+// swiftlint:enable line_length
