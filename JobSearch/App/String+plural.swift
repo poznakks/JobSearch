@@ -1,23 +1,11 @@
 //
-//  JobSearchApp.swift
+//  String+plural.swift
 //  JobSearch
 //
-//  Created by Vlad Boguzh on 15.03.2024.
+//  Created by Vlad Boguzh on 20.03.2024.
 //
 
-import SwiftUI
-
-@main
-struct JobSearchApp: App {
-
-    @StateObject private var coordinator = MainCoordinator()
-
-    var body: some Scene {
-        WindowGroup {
-            coordinator.view()
-        }
-    }
-}
+import Foundation
 
 extension String {
     static func vacanciesText(_ count: Int) -> Self {

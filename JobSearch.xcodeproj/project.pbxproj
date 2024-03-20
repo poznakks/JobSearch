@@ -39,6 +39,7 @@
 		21BF4E262BAB55B200589777 /* ResponsesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BF4E252BAB55B200589777 /* ResponsesCoordinator.swift */; };
 		21BF4E282BAB55BB00589777 /* MessagesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BF4E272BAB55BB00589777 /* MessagesCoordinator.swift */; };
 		21BF4E2A2BAB55C300589777 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BF4E292BAB55C300589777 /* ProfileCoordinator.swift */; };
+		21BF4E2F2BAB5F8200589777 /* String+plural.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BF4E2E2BAB5F8200589777 /* String+plural.swift */; };
 		21E2B8392BA49CDB0090D0DD /* JobSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */; };
 		21E2B83B2BA49CDB0090D0DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E2B83A2BA49CDB0090D0DD /* MainView.swift */; };
 		21E2B83D2BA49CDC0090D0DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E2B83C2BA49CDC0090D0DD /* Assets.xcassets */; };
@@ -81,6 +82,7 @@
 		21BF4E252BAB55B200589777 /* ResponsesCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponsesCoordinator.swift; sourceTree = "<group>"; };
 		21BF4E272BAB55BB00589777 /* MessagesCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesCoordinator.swift; sourceTree = "<group>"; };
 		21BF4E292BAB55C300589777 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		21BF4E2E2BAB5F8200589777 /* String+plural.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+plural.swift"; sourceTree = "<group>"; };
 		21E2B8352BA49CDB0090D0DD /* JobSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchApp.swift; sourceTree = "<group>"; };
 		21E2B83A2BA49CDB0090D0DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -116,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				21A1BF082BA4EAA10058F2BE /* TabBarPage.swift */,
-				21A1BF4F2BA8B2820058F2BE /* VacancyDetail */,
 				21A1BF0A2BA4EB320058F2BE /* Search */,
 				21A1BF0F2BA4EC350058F2BE /* Favorites */,
 				21A1BF182BA4ECA30058F2BE /* Responses */,
@@ -193,6 +194,7 @@
 				21A1BF352BA5FF140058F2BE /* CustomTextField.swift */,
 				21A1BF422BA7192F0058F2BE /* VacancyView.swift */,
 				21BF4E232BAB47D200589777 /* VacancyViewModel.swift */,
+				21A1BF4F2BA8B2820058F2BE /* VacancyDetail */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -225,6 +227,31 @@
 			path = VacancyDetail;
 			sourceTree = "<group>";
 		};
+		21BF4E2B2BAB5F3000589777 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */,
+				21BF4E2E2BAB5F8200589777 /* String+plural.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		21BF4E2C2BAB5F3900589777 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				21A1BF462BA74C840058F2BE /* Vacancy.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		21BF4E2D2BAB5F4500589777 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				21A1BF482BA75A1E0058F2BE /* NetworkClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		21E2B82C2BA49CDB0090D0DD = {
 			isa = PBXGroup;
 			children = (
@@ -244,15 +271,15 @@
 		21E2B8372BA49CDB0090D0DD /* JobSearch */ = {
 			isa = PBXGroup;
 			children = (
-				21E2B8382BA49CDB0090D0DD /* JobSearchApp.swift */,
+				21BF4E2B2BAB5F3000589777 /* App */,
 				21A1BF2E2BA5AFEB0058F2BE /* Common */,
 				21A1BF252BA5110B0058F2BE /* Login */,
 				21A1BF022BA4E9C80058F2BE /* Main */,
 				21A1BF072BA4EA910058F2BE /* Tabs */,
+				21BF4E2D2BAB5F4500589777 /* Networking */,
+				21BF4E2C2BAB5F3900589777 /* Models */,
 				21E2B8482BA49E0E0090D0DD /* Resources */,
 				21E2B83E2BA49CDC0090D0DD /* Preview Content */,
-				21A1BF462BA74C840058F2BE /* Vacancy.swift */,
-				21A1BF482BA75A1E0058F2BE /* NetworkClient.swift */,
 			);
 			path = JobSearch;
 			sourceTree = "<group>";
@@ -392,6 +419,7 @@
 				21A1BF292BA5114F0058F2BE /* LoginViewModel.swift in Sources */,
 				21A1BF532BA8BC910058F2BE /* AddressView.swift in Sources */,
 				21A1BF062BA4E9FE0058F2BE /* Coordinator.swift in Sources */,
+				21BF4E2F2BAB5F8200589777 /* String+plural.swift in Sources */,
 				21A1BF272BA5111E0058F2BE /* LoginView.swift in Sources */,
 				21E2B8542BA4B1920090D0DD /* Fonts.swift in Sources */,
 				21A1BF512BA8B3C20058F2BE /* CurrentPeopleView.swift in Sources */,
