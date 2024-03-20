@@ -50,3 +50,74 @@ struct Salary: Codable, Hashable {
     let full: String
     let short: String?
 }
+
+@Model
+final class VacancyDatabase {
+    @Attribute(.unique) var id: String
+    var index: Int
+    var lookingNumber: Int?
+    var title: String
+    var address: Address
+    var company: String
+    var experience: Experience
+    var publishedDate: String
+    var isFavorite: Bool
+    var salary: Salary?
+    var schedules: [String]
+    var appliedNumber: Int?
+    var descriptionText: String?
+    var responsibilities: String
+    var questions: [String]
+
+    init(
+        id: String,
+        lookingNumber: Int?,
+        title: String,
+        address: Address,
+        company: String,
+        experience: Experience,
+        publishedDate: String,
+        isFavorite: Bool,
+        salary: Salary,
+        schedules: [String],
+        appliedNumber: Int?,
+        descriptionText: String?,
+        responsibilities: String,
+        questions: [String]
+    ) {
+        self.id = id
+        self.index = 0
+        self.lookingNumber = lookingNumber
+        self.title = title
+        self.address = address
+        self.company = company
+        self.experience = experience
+        self.publishedDate = publishedDate
+        self.isFavorite = isFavorite
+        self.salary = salary
+        self.schedules = schedules
+        self.appliedNumber = appliedNumber
+        self.descriptionText = descriptionText
+        self.responsibilities = responsibilities
+        self.questions = questions
+    }
+
+    convenience init(from vacancy: Vacancy) {
+        self.init(
+            id: vacancy.id,
+            lookingNumber: vacancy.lookingNumber,
+            title: vacancy.title,
+            address: vacancy.address,
+            company: vacancy.company,
+            experience: vacancy.experience,
+            publishedDate: vacancy.publishedDate,
+            isFavorite: vacancy.isFavorite,
+            salary: vacancy.salary,
+            schedules: vacancy.schedules,
+            appliedNumber: vacancy.appliedNumber,
+            descriptionText: vacancy.description,
+            responsibilities: vacancy.responsibilities,
+            questions: vacancy.questions
+        )
+    }
+}

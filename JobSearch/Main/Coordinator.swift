@@ -15,3 +15,8 @@ protocol Coordinator: ObservableObject {
     @ViewBuilder
     func view() -> Self.Body
 }
+
+@MainActor
+protocol VacancyCoordinator: Coordinator {
+    func navigateBack()
+}

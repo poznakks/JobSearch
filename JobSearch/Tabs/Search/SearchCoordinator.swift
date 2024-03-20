@@ -6,26 +6,43 @@
 //
 
 import SwiftUI
+import SwiftData
 
-final class SearchCoordinator: Coordinator {
+final class SearchCoordinator: VacancyCoordinator {
 
     enum Destination: Hashable {
-        case detail(Vacancy)
+        case detail(VacancyDatabase)
     }
 
     @Published var path = NavigationPath()
+    private let modelContext: ModelContext
+
+    init(modelContext: ModelContext) {
+        self.modelContext = modelContext
+    }
 
     func navigate(to destination: Destination) {
         path.append(destination)
     }
 
-    @ViewBuilder
-    func view() -> some View {
-        SearchView(coordinator: self)
+    func navigateBack() {
+        path.removeLast()
     }
 
-    @ViewBuilder
-    func detailView(vacancy: Vacancy) -> some View {
-        VacancyDetailView(vacancy: vacancy)
+    func view() -> some View {
+        let viewModel = SearchViewModel(modelContext: modelContext)
+        return SearchView(coordinator: self, viewModel: viewModel)
+    }
+
+    func vacancyView(vacancy: VacancyDatabase) -> some View {
+        let viewModel = VacancyViewModel(vacancy: vacancy, modelContext: modelContext)
+        viewModel.parentCoordinator = self
+        return VacancyView(viewModel: viewModel)
+    }
+
+    func detailView(vacancy: VacancyDatabase) -> some View {
+        let viewModel = VacancyViewModel(vacancy: vacancy, modelContext: modelContext)
+        viewModel.parentCoordinator = self
+        return VacancyDetailView(viewModel: viewModel)
     }
 }

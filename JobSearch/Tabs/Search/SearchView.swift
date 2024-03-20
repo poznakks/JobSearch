@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchView: View {
 
     @ObservedObject var coordinator: SearchCoordinator
-    @StateObject private var viewModel = SearchViewModel()
+    @StateObject var viewModel: SearchViewModel
 
     var body: some View {
         NavigationStack(path: $coordinator.path) {
@@ -112,7 +112,7 @@ struct SearchView: View {
     private var vacancies: some View {
         VStack(spacing: 12) {
             ForEach(viewModel.vacancies.prefix(3)) { vacancy in
-                VacancyView(vacancy: vacancy)
+                coordinator.vacancyView(vacancy: vacancy)
                     .onTapGesture {
                         coordinator.navigate(to: .detail(vacancy))
                     }
@@ -133,6 +133,6 @@ struct SearchView: View {
     }
 }
 
-#Preview {
-    SearchView(coordinator: SearchCoordinator())
-}
+// #Preview {
+//    SearchView(coordinator: SearchCoordinator())
+// }

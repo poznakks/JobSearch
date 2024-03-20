@@ -9,25 +9,47 @@ import SwiftUI
 
 struct FavoritesView: View {
 
-    @ObservedObject private var coordinator: FavoritesCoordinator
-
-    init(coordinator: FavoritesCoordinator) {
-        self.coordinator = coordinator
-    }
+    @ObservedObject var coordinator: FavoritesCoordinator
+    @StateObject var viewModel: FavoritesViewModel
 
     var body: some View {
         NavigationStack(path: $coordinator.path) {
             ZStack {
                 Color.customBlack.ignoresSafeArea()
 
-                Text("FavoritesView")
-                    .font(.customTitle2)
-                    .foregroundStyle(.customWhite)
+                ScrollView(.vertical) {
+                    VStack {
+                        Text("FavoritesView")
+                            .font(.customTitle1)
+                            .foregroundStyle(.customWhite)
+                            .padding(.bottom, 24)
+
+                        ForEach(viewModel.vacancies) { vacancy in
+                            coordinator.vacancyView(vacancy: vacancy)
+                                .onTapGesture {
+                                    coordinator.navigate(to: .detail(vacancy))
+                                }
+                        }
+
+                        Spacer()
+                    }
+                    .padding(16)
+                }
+                .clipped()
+                .onAppear {
+                    viewModel.fetchFavoriteVacancies()
+                }
+                .navigationDestination(for: FavoritesCoordinator.Destination.self) {
+                    switch $0 {
+                    case .detail(let vacancy):
+                        coordinator.detailView(vacancy: vacancy)
+                    }
+                }
             }
         }
     }
 }
 
-#Preview {
-    FavoritesView(coordinator: FavoritesCoordinator())
-}
+// #Preview {
+//    FavoritesView(coordinator: SearchCoordinator(), viewModel: )
+// }
