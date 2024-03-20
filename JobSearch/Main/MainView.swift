@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
 
     let coordinator: MainCoordinator
-    @StateObject private var loginViewModel = LoginViewModel()
+    @ObservedObject var loginViewModel: LoginViewModel
 
     var body: some View {
         TabView {
@@ -21,8 +21,7 @@ struct MainView: View {
 
             tabItem(
                 coordinator: coordinator.favoritesCoordinator(),
-                page: .favorites,
-                badgeCounter: 1
+                page: .favorites
             )
 
             tabItem(
@@ -52,8 +51,7 @@ struct MainView: View {
 
     private func tabItem(
         coordinator: some Coordinator,
-        page: TabBarPage,
-        badgeCounter: Int = 0
+        page: TabBarPage
     ) -> some View {
         loginOrTabView(childCoordinator: coordinator)
             .tabItem {
@@ -62,7 +60,6 @@ struct MainView: View {
                     .font(.customTabText)
                     .foregroundStyle(.customGrey4)
             }
-            .badge(badgeCounter)
     }
 
     @ViewBuilder
@@ -89,5 +86,8 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(coordinator: MainCoordinator())
+    MainView(
+        coordinator: MainCoordinator(),
+        loginViewModel: LoginViewModel()
+    )
 }

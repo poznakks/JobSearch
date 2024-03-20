@@ -9,16 +9,18 @@ import SwiftUI
 import SwiftData
 import Combine
 
+@MainActor
 final class SearchViewModel: ObservableObject {
 
     @Published var vacancies: [VacancyDatabase] = []
 
     private let modelContext: ModelContext
-    private let networkClient = NetworkClient()
+    private let networkClient: NetworkClient
     private var cancellables: Set<AnyCancellable> = []
 
-    init(modelContext: ModelContext) {
+    init(modelContext: ModelContext, networkClient: NetworkClient = DefaultNetworkClient()) {
         self.modelContext = modelContext
+        self.networkClient = networkClient
         fetchRemoteVacancies()
     }
 
@@ -27,7 +29,7 @@ final class SearchViewModel: ObservableObject {
             let descriptor = FetchDescriptor<VacancyDatabase>(sortBy: [SortDescriptor(\.index)])
             vacancies = try modelContext.fetch(descriptor)
         } catch {
-            fatalError("Fetch failed")
+            fatalError("Cannot fetch vacancies from context")
         }
     }
 
@@ -40,7 +42,6 @@ final class SearchViewModel: ObservableObject {
                     vacancyDatabase.index = index
                     self?.modelContext.insert(vacancyDatabase)
                 }
-//                self?.vacancies = vacancies.map { VacancyDatabase(from: $0) }
                 self?.fetchVacancies()
             }
             .store(in: &cancellables)

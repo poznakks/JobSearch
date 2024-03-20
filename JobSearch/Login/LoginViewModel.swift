@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+@MainActor
 final class LoginViewModel: ObservableObject {
+
     @Published var isAuthenticated = false
     @Published var showConfirm = false
     @Published var emailError = false

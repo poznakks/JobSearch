@@ -9,7 +9,11 @@ import Foundation
 import SwiftData
 import Combine
 
-final class NetworkClient {
+protocol NetworkClient {
+    func fetchVacancies() -> AnyPublisher<[Vacancy], Never>
+}
+
+final class DefaultNetworkClient: NetworkClient {
     func fetchVacancies() -> AnyPublisher<[Vacancy], Never> {
         guard let url = URL(string: "https://run.mocky.io/v3/ed41d10e-0c1f-4439-94fa-9702c9d95c14") else {
             return Just([]).eraseToAnyPublisher()

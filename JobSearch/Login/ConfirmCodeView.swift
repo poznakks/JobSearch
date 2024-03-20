@@ -13,7 +13,7 @@ struct ConfirmCodeView: View {
 
     @Environment(\.dismiss) private var dismiss
     @State private var digits = ["", "", "", ""]
-    @FocusState private var focusedField: Digit?
+    @FocusState private var focusedField: DigitTextField.Digit?
 
     private var isAnyDigitEmpty: Bool {
         digits[0].isEmpty ||

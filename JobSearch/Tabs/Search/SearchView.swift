@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct SearchView: View {
 
     @ObservedObject var coordinator: SearchCoordinator
-    @StateObject var viewModel: SearchViewModel
+    @ObservedObject var viewModel: SearchViewModel
 
     var body: some View {
         NavigationStack(path: $coordinator.path) {
@@ -123,7 +124,7 @@ struct SearchView: View {
 
     private var moreVacanciesButton: some View {
         RectangularButton(
-            title: "Eще \(viewModel.vacancies.count - 3) вакансии",
+            title: "Eще " + String.vacanciesText(viewModel.vacancies.count - 3),
             font: .customButtonText1,
             bgColor: .customBlue,
             height: 48
@@ -133,6 +134,16 @@ struct SearchView: View {
     }
 }
 
-// #Preview {
-//    SearchView(coordinator: SearchCoordinator())
-// }
+#Preview {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: VacancyDatabase.self, configurations: config)
+        return SearchView(
+            coordinator: SearchCoordinator(
+                modelContext: container.mainContext),
+            viewModel: SearchViewModel(modelContext: container.mainContext))
+        .preferredColorScheme(.dark)
+    } catch {
+        fatalError("Cannot create model container for preview")
+    }
+}

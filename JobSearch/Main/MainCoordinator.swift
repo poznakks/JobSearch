@@ -14,18 +14,20 @@ final class MainCoordinator: Coordinator {
     private let modelContainer: ModelContainer
     private let modelContext: ModelContext
 
+    private let loginViewModel = LoginViewModel()
+
     init() {
         do {
             let config = ModelConfiguration(isStoredInMemoryOnly: true)
             self.modelContainer = try ModelContainer(for: VacancyDatabase.self, configurations: config)
             self.modelContext = modelContainer.mainContext
         } catch {
-            fatalError("cannot create model container")
+            fatalError("Cannot create model container")
         }
     }
 
     func view() -> some View {
-        MainView(coordinator: self)
+        MainView(coordinator: self, loginViewModel: loginViewModel)
     }
 
     func searchCoordinator() -> SearchCoordinator {
@@ -49,7 +51,7 @@ final class MainCoordinator: Coordinator {
     }
 
     func loginView(viewModel: LoginViewModel) -> some View {
-        LoginView(viewModel: viewModel)
+        LoginView(viewModel: loginViewModel)
     }
 
     func confirmCodeView(email: String) -> some View {

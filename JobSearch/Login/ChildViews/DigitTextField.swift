@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-enum Digit: Hashable {
-    case first, second, third, fourth
-}
-
 struct DigitTextField: View {
 
     @Binding var text: String
@@ -44,8 +40,14 @@ struct DigitTextField: View {
     }
 }
 
+extension DigitTextField {
+    enum Digit: Hashable {
+        case first, second, third, fourth
+    }
+}
+
 #Preview {
-    @FocusState var focusedField: Digit?
+    @FocusState var focusedField: DigitTextField.Digit?
     return DigitTextField(
         text: .constant(""),
         focusedField: $focusedField,

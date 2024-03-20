@@ -8,48 +8,18 @@
 import SwiftUI
 import SwiftData
 
-@MainActor
-final class VacancyViewModel: ObservableObject {
-
-    @Published var vacancy: VacancyDatabase
-    weak var parentCoordinator: (any VacancyCoordinator)?
-    private let modelContext: ModelContext
-
-    init(vacancy: VacancyDatabase, modelContext: ModelContext) {
-        self.vacancy = vacancy
-        self.modelContext = modelContext
-    }
-
-    func changeFavorite() {
-        vacancy.isFavorite.toggle()
-        do {
-            try modelContext.save()
-        } catch {
-            fatalError("cannot save context")
-        }
-    }
-
-    func navigateBack() {
-        parentCoordinator?.navigateBack()
-    }
-}
-
 struct VacancyView: View {
 
     @ObservedObject var viewModel: VacancyViewModel
 
     var body: some View {
         VStack(spacing: 10) {
-            if viewModel.vacancy.lookingNumber != nil {
-                lookingNumberTitle
-            }
+            lookingNumberTitle
 
             jobTitle
                 .padding(.trailing, 40)
 
-            if viewModel.vacancy.salary?.short != nil {
-                salaryTitle
-            }
+            salaryTitle
 
             townTitle
 
@@ -57,10 +27,9 @@ struct VacancyView: View {
 
             experienceTitle
 
-            if let publishedDate = formatDate() {
-                publishedDateTitle(publishedDate)
-                    .padding(.bottom, 12)
-            }
+            publishedDateTitle
+                .padding(.bottom, 12)
+
             RoundedButton(title: "Отклинуться", action: {})
         }
         .padding(16)
@@ -73,10 +42,12 @@ struct VacancyView: View {
 
     private var lookingNumberTitle: some View {
         HStack {
-            Text("Cейчас просматривает \(viewModel.vacancy.lookingNumber ?? 0) человек")
-                .foregroundStyle(.customGreen)
-                .font(.customText1)
-            Spacer()
+            if let lookingNumber = viewModel.vacancy.lookingNumber {
+                Text("Cейчас просматривает " + String.peopleText(lookingNumber))
+                    .foregroundStyle(.customGreen)
+                    .font(.customText1)
+                Spacer()
+            }
         }
     }
 
@@ -91,10 +62,12 @@ struct VacancyView: View {
 
     private var salaryTitle: some View {
         HStack {
-            Text(viewModel.vacancy.salary?.short ?? "")
-                .foregroundStyle(.customWhite)
-                .font(.customTitle1)
-            Spacer()
+            if let salary = viewModel.vacancy.salary?.short {
+                Text(salary)
+                    .foregroundStyle(.customWhite)
+                    .font(.customTitle1)
+                Spacer()
+            }
         }
     }
 
@@ -127,12 +100,14 @@ struct VacancyView: View {
         }
     }
 
-    private func publishedDateTitle(_ date: String) -> some View {
+    private var publishedDateTitle: some View {
         HStack {
-            Text("Опубликовано \(date)")
-                .foregroundStyle(.customGrey4)
-                .font(.customText1)
-            Spacer()
+            if let publishedDate = formatDate() {
+                Text("Опубликовано \(publishedDate)")
+                    .foregroundStyle(.customGrey4)
+                    .font(.customText1)
+                Spacer()
+            }
         }
     }
 
@@ -169,28 +144,17 @@ struct VacancyView: View {
     }
 }
 
-//// swiftlint:disable line_length
-// #Preview {
-//    let vacancy = VacancyDatabase(
-//        id: "54a876a5-2205-48ba-9498-cfecff4baa6e",
-//        lookingNumber: 17,
-//        title: "UI/UX-дизайнер / Web-дизайнер / Дизайнер интерфейсов",
-//        address: Address(town: "Казань", street: "улица Чистопольская", house: "20/10"),
-//        company: "Шафигуллин Шакир",
-//        experience: Experience(previewText: "Опыт от 1 до 3 лет", text: "1–3 года"),
-//        publishedDate: "2024-03-06",
-//        isFavorite: false,
-//        salary: Salary(full: "от 20 000 до 50 000 ₽ на руки", short: "20 000 до 50 000 ₽"),
-//        schedules: ["частичная занятость",
-//                    "полный день"],
-//        appliedNumber: 147,
-//        descriptionText: "Мы разрабатываем мобильные приложения, web-приложения и сайты под ключ.\n\nНам в команду нужен UX/UI Designer!",
-//        responsibilities: "- Разработка дизайна Web+App (обязательно Figma)\n\n- Работа над созданием и улучшением систем;\n\n- Взаимодействие с командами frontend-разработки и backend-разработки",
-//        questions: ["Где располагается место работы?",
-//                    "Какой график работы?",
-//                    "Как с вами связаться?"]
-//    )
-//    return VacancyView(viewModel: VacancyViewModel(vacancy: vacancy))
-//                .preferredColorScheme(.dark)
-// }
-//// swiftlint:enable line_length
+#Preview {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: VacancyDatabase.self, configurations: config)
+        let vacancy = VacancyDatabase.sample
+        return VacancyView(viewModel: VacancyViewModel(
+            vacancy: vacancy,
+            modelContext: container.mainContext
+        ))
+        .preferredColorScheme(.dark)
+    } catch {
+        fatalError("Cannot create model container for preview")
+    }
+}

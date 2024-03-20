@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct VacancyDetailView: View {
 
@@ -248,29 +249,18 @@ private extension String {
         return firstLetter + remainingLetters
     }
 }
-//
-//// swiftlint:disable line_length
-// #Preview {
-//    let vacancy = VacancyDatabase(
-//        id: "54a876a5-2205-48ba-9498-cfecff4baa6e",
-//        lookingNumber: 17,
-//        title: "UI/UX-дизайнер / Web-дизайнер / Дизайнер интерфейсов",
-//        address: Address(town: "Казань", street: "улица Чистопольская", house: "20/10"),
-//        company: "Шафигуллин Шакир",
-//        experience: Experience(previewText: "Опыт от 1 до 3 лет", text: "1–3 года"),
-//        publishedDate: "2024-03-06",
-//        isFavorite: false,
-//        salary: Salary(full: "от 20 000 до 50 000 ₽ на руки", short: "20 000 до 50 000 ₽"),
-//        schedules: ["частичная занятость",
-//                    "полный день"],
-//        appliedNumber: 147,
-//        descriptionText: "Мы разрабатываем мобильные приложения, web-приложения и сайты под ключ.\n\nНам в команду нужен UX/UI Designer!",
-//        responsibilities: "- Разработка дизайна Web+App (обязательно Figma)\n\n- Работа над созданием и улучшением систем;\n\n- Взаимодействие с командами frontend-разработки и backend-разработки",
-//        questions: ["Где располагается место работы?",
-//                    "Какой график работы?",
-//                    "Как с вами связаться?"]
-//    )
-//    return VacancyDetailView(viewModel: VacancyViewModel(vacancy: vacancy))
-//                .preferredColorScheme(.dark)
-// }
-//// swiftlint:enable line_length
+
+#Preview {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: VacancyDatabase.self, configurations: config)
+        let vacancy = VacancyDatabase.sample
+        return VacancyDetailView(viewModel: VacancyViewModel(
+            vacancy: vacancy,
+            modelContext: container.mainContext
+        ))
+        .preferredColorScheme(.dark)
+    } catch {
+        fatalError("Cannot create model container for preview")
+    }
+}

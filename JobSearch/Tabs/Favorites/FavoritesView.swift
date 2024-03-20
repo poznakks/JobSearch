@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct FavoritesView: View {
 
     @ObservedObject var coordinator: FavoritesCoordinator
-    @StateObject var viewModel: FavoritesViewModel
+    @ObservedObject var viewModel: FavoritesViewModel
 
     var body: some View {
         NavigationStack(path: $coordinator.path) {
@@ -19,17 +20,13 @@ struct FavoritesView: View {
 
                 ScrollView(.vertical) {
                     VStack {
-                        Text("FavoritesView")
-                            .font(.customTitle1)
-                            .foregroundStyle(.customWhite)
+                        title
+                            .padding(.bottom, 16)
+
+                        vacanciesCount
                             .padding(.bottom, 24)
 
-                        ForEach(viewModel.vacancies) { vacancy in
-                            coordinator.vacancyView(vacancy: vacancy)
-                                .onTapGesture {
-                                    coordinator.navigate(to: .detail(vacancy))
-                                }
-                        }
+                        vacancies
 
                         Spacer()
                     }
@@ -48,8 +45,46 @@ struct FavoritesView: View {
             }
         }
     }
+
+    private var title: some View {
+        HStack {
+            Text("FavoritesView")
+                .font(.customTitle1)
+                .foregroundStyle(.customWhite)
+            Spacer()
+        }
+    }
+
+    private var vacanciesCount: some View {
+        HStack {
+            Text(String.vacanciesText(viewModel.vacancies.count))
+                .font(.customText1)
+                .foregroundStyle(.customGrey3)
+            Spacer()
+        }
+    }
+
+    private var vacancies: some View {
+        ForEach(viewModel.vacancies) { vacancy in
+            coordinator.vacancyView(vacancy: vacancy)
+                .onTapGesture {
+                    coordinator.navigate(to: .detail(vacancy))
+                }
+        }
+    }
 }
 
-// #Preview {
-//    FavoritesView(coordinator: SearchCoordinator(), viewModel: )
-// }
+#Preview {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: VacancyDatabase.self, configurations: config)
+        let vacancy = VacancyDatabase.sample
+        container.mainContext.insert(vacancy)
+        return FavoritesView(
+            coordinator: FavoritesCoordinator(modelContext: container.mainContext),
+            viewModel: FavoritesViewModel(modelContext: container.mainContext))
+        .preferredColorScheme(.dark)
+    } catch {
+        fatalError("Cannot create model container for preview")
+    }
+}

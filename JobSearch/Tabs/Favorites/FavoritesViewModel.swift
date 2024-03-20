@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 import Combine
 
+@MainActor
 final class FavoritesViewModel: ObservableObject {
 
     @Published var vacancies: [VacancyDatabase] = []
@@ -29,7 +30,7 @@ final class FavoritesViewModel: ObservableObject {
             )
             vacancies = try modelContext.fetch(descriptor)
         } catch {
-            fatalError("Fetch failed")
+            fatalError("Cannot fetch favorite vacancies from context")
         }
     }
 }

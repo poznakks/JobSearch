@@ -120,4 +120,34 @@ final class VacancyDatabase {
             questions: vacancy.questions
         )
     }
+
+    static var sample: VacancyDatabase {
+        VacancyDatabase(
+            id: "54a876a5-2205-48ba-9498-cfecff4baa6e",
+            lookingNumber: 17,
+            title: "UI/UX-дизайнер / Web-дизайнер / Дизайнер интерфейсов",
+            address: Address(town: "Казань", street: "улица Чистопольская", house: "20/10"),
+            company: "Шафигуллин Шакир",
+            experience: Experience(previewText: "Опыт от 1 до 3 лет", text: "1–3 года"),
+            publishedDate: "2024-03-06",
+            isFavorite: true,
+            salary: Salary(full: "от 20 000 до 50 000 ₽ на руки", short: "20 000 до 50 000 ₽"),
+            schedules: ["частичная занятость",
+                        "полный день"],
+            appliedNumber: 147,
+            descriptionText: """
+                            Мы разрабатываем мобильные приложения,
+                             web-приложения и сайты под ключ.\n\n
+                            Нам в команду нужен UX/UI Designer!
+                            """,
+            responsibilities: """
+                            - Разработка дизайна Web+App (обязательно Figma)\n\n
+                            - Работа над созданием и улучшением систем;\n\n
+                            - Взаимодействие с командами frontend-разработки и backend-разработки
+                            """,
+            questions: ["Где располагается место работы?",
+                        "Какой график работы?",
+                        "Как с вами связаться?"]
+        )
+    }
 }

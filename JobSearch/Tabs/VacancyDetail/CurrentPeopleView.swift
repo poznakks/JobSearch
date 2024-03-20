@@ -56,10 +56,10 @@ struct CurrentPeopleView: View {
     private var text: String {
         switch type {
         case .looking:
-            "\(number) человек сейчас смотрят"
+            String.peopleText(number) + " сейчас смотрят"
 
         case .applied:
-            "\(number) человек уже откликнулись"
+            String.peopleText(number) + " уже откликнулись"
         }
     }
 }
